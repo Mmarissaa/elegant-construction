@@ -1,0 +1,707 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'monsterrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: none;
+  color: bLACK;
+}
+
+/*Header {
+    display:flex;
+    box-shadow: 0px 2px 3px rgb(198, 198, 198);
+    flex-wrap: wrap;
+    
+    font-family: 'manrope', sans-serif;
+    font-weight: 100;
+}*/
+
+.header {
+  font-family: 'Monsterrat', serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* // <uniquifier>: Use a unique and descriptive class name */
+/*// <weight>: Use a value from 100 to 900*/
+
+.montserrat {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+
+h1,
+h2,
+h3 {
+  font-family: 'Monsterrat', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  padding: 50px;
+
+}
+
+p {
+  font-family: 'metal', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 20px;
+  justify-content: left;
+  text-indent: 0%;
+}
+.bottom-p {
+   padding-top: 20px; 
+}
+
+h4 {
+  font-family: 'Monsterrat', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+nav {
+  background-color: white;
+  box-shadow: 3px, 3px, 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Monsterrat', serif;
+}
+
+nav ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav li {
+  height: 50px;
+}
+
+nav a {
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+nav a:hover {
+  background-color: #f0f0f0;
+}
+
+nav li:first-child {
+  margin-right: auto;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.112);
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.sidebar li {
+  width: 100%;
+}
+
+.sidebar a {
+  width: 100%;
+}
+
+.menu-button {
+  display: none;
+}
+
+@media(max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}
+
+@media(max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+/*styling for main*/
+main {
+  display: flex;
+  /* tells main that it is in a container*/
+  flex-direction: column;
+  /* Stacks child elements (sections) vertically in a column*/
+  align-items: center;
+  /*Align child elements horizontally and center */
+  padding: 30vh;
+  /*adds padding around the main content for better spacing*/
+  justify-content: center;
+}
+
+.intro {
+  text-align: center;
+}
+
+section {
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* .photo-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px
+}
+
+.photo-grid img {
+  position: relative;
+  overflow: hidden;
+  padding: 50vh;
+} */
+/* The grid container that holds all project items */
+.projects-grid {
+  display: grid;
+  /* Turns this div into a grid container */
+  grid-template-columns: repeat(4, 1fr);
+  /* Creates 4 equal-width columns */
+  grid-auto-rows: auto;
+  /* Automatically adjusts the row height based on content */
+  gap: 20px;
+  /* Adds a 20px space between each grid item */
+
+}
+
+/* Each individual project item */
+.project {
+  position: relative;
+  /* Allows positioning of child elements relative to this container */
+  overflow: hidden;
+  /* Ensures content doesn't spill outside of the container */
+  border-radius: 2%;
+  /* Rounds the corners of the project box */
+  transition: transform 0.3s;
+  /* Smooth transitions for any future transformations (like hover effects) */
+}
+
+/* The image inside each project */
+.project img {
+  width: 100%;
+  /* Ensures the image takes up the full width of its container */
+  height: 100%;
+  /* Maintains the image's aspect ratio */
+  display: block;
+  /* Ensures no extra space below the image */
+  border-radius: 2%;
+  /* Rounds the image's corners to match the project box */
+  opacity: 1;
+  /* Adds a smooth transition when the image opacity changes on hover */
+  object-fit: cover;
+}
+
+/* The description box that appears on hover */
+.project .description {
+  position: absolute;
+  /* Allows this element to be placed over the image */
+  bottom: 0;
+  /* Anchors the description to the bottom of the project box */
+  left: 0;
+  /* Stretches the description from the left */
+  right: 0;
+  /* Stretches the description to the right */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Semi-transparent black background (70% opacity) */
+  color: #fff;
+  /* White text color */
+  text-align: center;
+  /* Centers the text horizontally */
+  padding: 10px;
+  /* Adds padding inside the description for spacing */
+  opacity: 0;
+  /* Initially hidden (fully transparent) */
+  transition: opacity 0.3s;
+  /* Adds a smooth transition when the description appears */
+  border-radius: 0 0 5px 5px;
+  /* Rounds the bottom corners of the description to match the project box */
+}
+
+/* Hover effect on the project: makes the image slightly transparent */
+.project:hover img {
+  opacity: 0.7;
+  /* Reduces the image opacity on hover */
+}
+
+/* Hover effect on the project: shows the description */
+.project:hover .description {
+  opacity: 1;
+  /* Makes the description fully visible on hover */
+}
+
+/* Makes the entire project item clickable, linking to a new page */
+.project a {
+  display: block;
+  /* Ensures the link covers the entire project item */
+  color: inherit;
+  /* Keeps the text color from the parent (usually white) */
+  text-decoration: none;
+  /* Removes the underline from the text */
+}
+
+.projects-grid {
+  display: grid;
+  /* Turns this div into a grid container */
+  grid-template-columns: repeat(4, 1fr);
+  /* Creates 4 equal-width columns */
+  grid-auto-rows: auto;
+  /* Automatically adjusts the row height based on content */
+  gap: 20px;
+  /* Adds a 20px space between each grid item */
+ 
+}
+
+/* Each individual project item */
+.photo-grid {
+  position: relative;
+  /* Allows positioning of child elements relative to this container */
+  overflow: hidden;
+  /* Ensures content doesn't spill outside of the container */
+  border-radius: 2%;
+  /* Rounds the corners of the project box */
+  transition: transform 0.3s;
+  /* Smooth transitions for any future transformations (like hover effects) */
+  display: flex;
+  /* Turns this div into a grid container */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  /* Creates 4 equal-width columns */
+  grid-auto-rows: auto;
+  /* Automatically adjusts the row height based on content */
+  gap: 20px;
+  /* Adds a 20px space between each grid item */
+}
+
+/* The image inside each project */
+.photo-grid img {
+  width: 100%;
+  /* Ensures the image takes up the full width of its container */
+  height: 75%;
+  /* Maintains the image's aspect ratio */
+  display: flex;
+  /* Ensures no extra space below the image */
+  border-radius: 2%;
+  /* Rounds the image's corners to match the project box */
+  opacity: 1;
+  /* Adds a smooth transition when the image opacity changes on hover */
+  object-fit: cover;
+}
+
+/* The description box that appears on hover */
+.photo-grid .description {
+  position: absolute;
+  /* Allows this element to be placed over the image */
+  bottom: 0;
+  /* Anchors the description to the bottom of the project box */
+  left: 0;
+  /* Stretches the description from the left */
+  right: 0;
+  /* Stretches the description to the right */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Semi-transparent black background (70% opacity) */
+  color: #fff;
+  /* White text color */
+  text-align: center;
+  /* Centers the text horizontally */
+  padding: 10px;
+  /* Adds padding inside the description for spacing */
+  opacity: 0;
+  /* Initially hidden (fully transparent) */
+  transition: opacity 0.3s;
+  /* Adds a smooth transition when the description appears */
+  border-radius: 0 0 5px 5px;
+  /* Rounds the bottom corners of the description to match the project box */
+
+}
+
+.photo-grid .gallery {
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+ 
+  
+  
+}
+.photo-grid .gallery img {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+
+
+/* Makes the entire project item clickable, linking to a new page */
+.photo-grid a {
+  display: block;
+  /* Ensures the link covers the entire project item */
+  color: inherit;
+  /* Keeps the text color from the parent (usually white) */
+  text-decoration: none;
+  /* Removes the underline from the text */
+}
+
+
+.name {
+  text-align: center;
+}
+/*
+.headshot {
+  padding-left: 30vh;
+  padding-bottom: 30vh;
+
+}
+
+.meet-keith {
+  margin-right: auto;
+  padding: 50vh;
+  text-align: center;
+} */
+/* General styles for the container, image, and text */
+.content-container-meet-keith {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  flex-direction: column;
+}
+
+.headshot {
+  width: 300px; /* Initial width */
+  height: auto;
+}
+
+.content-text {
+  flex: 1;
+  font-family: 'metal', serif;
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20vh;
+  gap: 20vh;
+  font-size: larger;
+  text-indent: 20vh;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .content-container-meet-keith {
+      flex-direction: column; /* Stacks items vertically */
+      align-items: center; /* Centers items in the container */
+      text-align: center; /* Centers the text */
+  }
+
+  .headshot {
+      width: 80%; /* Makes the image take more space on small screens */
+      max-width: 300px; /* Sets a max width to prevent it from becoming too large */
+      margin-bottom: 10px; /* Adds space between the image and text */
+  }
+
+  .content-text {
+      width: 100%; /* Ensures the text takes full width on small screens */
+  }
+}
+
+.feature {
+    width: 100%;
+    overflow: hidden;
+}
+
+.feature img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+footer {
+
+  width: 100%;
+  font-size: medium;
+  padding: 20px 0;
+  margin: 0;
+  font-family: 'Monsterrat', sans-serif;
+  position: relative;
+  text-align: center;
+
+}
+
+.footerbuttons {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+ul.footerbuttons {
+  margin-top: 20px;
+}
+
+.footerbuttons li {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  border-radius: 50%;
+  padding: 6px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(0deg, #ddd, #fff);
+  transition: 0.5s;
+}
+
+.footerbuttons li a .fab {
+  font-size: 24px;
+  color: #262626;
+  transition: 0.5s;
+}
+
+/* Hover effects */
+.footerbuttons li:nth-child(1) a:hover .fab {
+  color: #3b5998;
+}
+
+.footerbuttons li:nth-child(2) a:hover .fab {
+  color: #8bb832;
+}
+
+.footerbuttons li:nth-child(3) a:hover .fab {
+  color: #de2b14;
+}
+
+.footerbuttons li:nth-child(4) a:hover .fab {
+  color: blue;
+}
+
+.footerbuttons li:nth-child(5) a:hover .fab {
+  color: #e4405f;
+}
+
+
+
+/* end footer*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap');
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.gallery {
+  size: 100px;
+  display: grid;
+  grid-template-columns: repeat(6, var(--size));
+  grid-auto-rows: var(--size);
+  margin-bottom: var(--size);
+  place-items: start center;
+  gap: 5px;
+
+  &:has(:hover) img:not(:hover),
+  &:has(:focus) img:not(:focus) {
+    filter: brightness(0.5) contrast(0.5);
+  }
+
+  &img {
+    object-fit: cover;
+    width: calc(var(--size) * 2);
+    height: calc(var(--size) * 2);
+    clip-path: path("M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z");
+    transition: clip-path 0.25s, filter 0.75s;
+    grid-column: auto / span 2;
+    border-radius: 5px;
+
+    &:nth-child(5n - 1) {
+      grid-column: 2 / span 2
+    }
+
+    &:hover,
+    &:focus {
+      clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
+      z-index: 1;
+      transition: clip-path 0.25s, filter 0.25s;
+    }
+
+    &:focus {
+      outline: 1px dashed black;
+      outline-offset: -5px;
+    }
+  }
+}
+
+
+.contact-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 10vh;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 60em;
+  height: auto;
+  box-sizing: border-box;
+}
+
+/* General form styling */
+form input,
+form select,
+form textarea,
+form fieldset,
+form optgroup,
+.StripeElement {
+  font-family: 'monsterrat', serif;
+  font-size: 100%;
+  color: inherit;
+  border: 1px solid #ccc;
+  /* Add a light border */
+  border-radius: 4px;
+  /* Rounded corners */
+  display: block;
+  width: 75vh;
+  padding: 10vh;
+  /* Add padding for better spacing */
+  margin-bottom: 10vh;
+  /* Space between form elements */
+  appearance: none;
+}
+
+/* Label styling - ensure it's inline and not affected by display: block */
+form label {
+  font-weight: bold;
+  display: inline-block;
+  /* Keep label inline if preferred */
+  margin-bottom: 4vh;
+  /* Add spacing below label */
+}
+
+/* Specific adjustments for .StripeElement */
+.StripeElement {
+  background-color: #f8f8f8;
+  /* Subtle background for Stripe input */
+  padding: 10vh;
+}
+
+/* Label styling - ensure it's inline and not affected by display: block */
+form label {
+  font-weight: bold;
+  display: inline-block;
+  /* Keep label inline if preferred */
+  margin-bottom: 4vh;
+  /* Add spacing below label */
+}
+
+/* Specific adjustments for .StripeElement */
+.StripeElement {
+  background-color: #f8f8f8;
+  /* Subtle background for Stripe input */
+  padding: 10vh;
+}
+
+form label,
+form legend {
+  font-size: 0.825rem;
+  margin-bottom: 0.5rem;
+}
+
+/* border, padding, margin, width */
+form input,
+form select,
+form textarea,
+.StripeElement {
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1em .25rem;
+  margin-bottom: 1rem;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus,
+.StripeElement:focus {
+  background-color: white;
+  outline-style: solid;
+  outline-width: thin;
+  outline-color: gray;
+  outline-offset: -1px;
+}
+
+form [type="text"],
+form [type="email"],
+.StripeElement {
+  width: 100%;
+}
+
+form [type="button"],
+form [type="submit"],
+form [type="reset"] {
+  width: auto;
+  cursor: pointer;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  background-color: black;
+  color: white;
+}
+
+form [type="button"]:focus,
+form [type="submit"]:focus,
+form [type="reset"]:focus {
+  outline: none;
+}
+
+form select {
+  text-transform: none;
+}
